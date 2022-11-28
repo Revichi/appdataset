@@ -26,7 +26,7 @@ if home==True and Tools==False:
         ,Dissimilarity
         ,Correlation
         ,Coarseness""")
-    data = pd.read_csv('DataMin/BrainTumor.csv')
+    data = pd.read_csv("DataMin/BrainTumor.csv")
     data.fillna(0,inplace=True)
     data
 
@@ -64,3 +64,14 @@ if Tools==False and home==False or Tools==True and home==False:
             else :  
                 time.sleep(2)
                 st.warning("Hasil : "+nama+" Kemungkinan adalah tumor")
+                
+                
+with st.sidebar:
+    st.write('Link:')
+    colum = st.columns((0.1,1,1))
+    url = 'https://github.com/Revichi/appdataset'
+    if colum[1].button('GitHub'):
+        webbrowser.open_new_tab(url)      
+    link = 'https://revichi.github.io/datamining/App.html?highlight=penambangan'
+    if colum[2].button('Jupyter'):
+        webbrowser.open_new_tab(link)
