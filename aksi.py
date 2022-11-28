@@ -6,7 +6,7 @@ def normalisasi(x):
     # cols = ["Age","Sex","ALT","AST"]
     cols = ["Mean","Variance","Standard Deviation","Entropy","Skewness","Kurtosis","Contrast","Energy","ASM","Homogeneity","Dissimilarity","Correlation","Coarseness"]
     df = pd.DataFrame([x],columns=cols)
-    data_test = pd.read_csv('C:Py/DataMin/fix.csv')
+    data_test = pd.read_csv('DataMin/fix.csv')
     data_test = data_test.drop(data_test.columns[0],axis=1)
     # data_test = data_test.drop(data_test.columns[7:13],axis=1)
     # memasukkan data kedalam data test
@@ -14,8 +14,8 @@ def normalisasi(x):
     # print(data_test.columns)
     # print(data_test)
     # return data_test yang sudah dinormalisasi
-    return joblib.load('C:Py/DataMin/model.sav').fit_transform(data_test)
+    return joblib.load('DataMin/model.sav').fit_transform(data_test)
 
 def knn(x):
     
-    return joblib.load('C:Py/DataMin/KNNmodel5.pkl').predict(x)
+    return joblib.load('DataMin/KNNmodel5.pkl').predict(x)
