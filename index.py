@@ -73,3 +73,5 @@ with st.sidebar:
     st.markdown(link, unsafe_allow_html=True)
     link = '[Jupyter Book](https://revichi.github.io/datamining/App.html?highlight=penambangan)'
     st.markdown(link, unsafe_allow_html=True)
+    link = '[Kaggle Dataset](https://www.kaggle.com/datasets/jakeshbohaju/brain-tumor?select=Brain+Tumor.csv)'
+    st.markdown(link, unsafe_allow_html=True)
