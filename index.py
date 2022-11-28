@@ -12,8 +12,23 @@ with st.sidebar:
 if home==True and Tools==False:
     st.title('Brain Tumor')
     st.write("""
-    Dapat Memprediksi Tumor dengan menginputkan analisa hasil rontgen kepala
+    Dataset Brain Tumor otak yang mencakup lima fitur ukuran pertama dan delapan fitur tekstur dengan level target.
     """)
+    st.write("""
+        Fitur Peratama: Mean, Variance,Standard Deviation,Skewness,Kurtosis
+    """)
+    st.write("""Fitur Kedua :
+        ,Contrast
+        ,Energy
+        ,ASM (Angular second moment)
+        ,Entropy
+        ,Homogeneity
+        ,Dissimilarity
+        ,Correlation
+        ,Coarseness""")
+    data = pd.read_csv('DataMin/BrainTumor.csv')
+    data.fillna(0,inplace=True)
+    data
 
 if Tools==False and home==False or Tools==True and home==False:
     st.title('Tools')
