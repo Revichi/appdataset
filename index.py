@@ -69,10 +69,7 @@ if Tools==False and home==False or Tools==True and home==False:
                 
 with st.sidebar:
     st.write('Link:')
-    colum = st.columns((0.1,1,1))
-    url = 'https://github.com/Revichi/appdataset'
-    if colum[1].button('GitHub'):
-        webbrowser.open_new_tab(url)      
-    link = 'https://revichi.github.io/datamining/App.html?highlight=penambangan'
-    if colum[2].button('Jupyter'):
-        webbrowser.open_new_tab(link)
+    link = '[GitHub](https://github.com/Revichi/appdataset)'
+    st.markdown(link, unsafe_allow_html=True)
+    link = '[Jupyter Book](https://revichi.github.io/datamining/App.html?highlight=penambangan)'
+    st.markdown(link, unsafe_allow_html=True)
