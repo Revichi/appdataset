@@ -3,6 +3,7 @@ import numpy as np
 import aksi
 import time
 import webbrowser
+import pandas as pd
 
 with st.sidebar:
     kolom = st.columns((1, 1, 2.7))
