@@ -34,7 +34,7 @@ if home==True and Tools==False:
 if Tools==False and home==False or Tools==True and home==False:
     st.title('Tools')
     st.write("""
-    Harap Isi Data Sesuai Kolom, Data Tidak Boleh Kosong
+    Harap Isi Data Sesuai Kolom
     """)
     nama = st.text_input("Nama", placeholder= 'Nama')
     Mean = st.number_input("Mean")
