@@ -10,7 +10,7 @@ with st.sidebar:
     home = kolom[1].button('Home',type='primary')
     Tools = kolom[2].button('Tools')
 
-if home==True and Tools==False:
+if Tools==False and home==True:
     st.title('Brain Tumor')
     st.write("""
     Dataset Brain Tumor otak yang mencakup lima fitur ukuran pertama dan delapan fitur tekstur dengan level target.
@@ -27,14 +27,14 @@ if home==True and Tools==False:
         ,Dissimilarity
         ,Correlation
         ,Coarseness""")
-    data = pd.read_csv("DataMin/BrainTumor.csv")
+    data = pd.read_csv('DataMin/BrainTumor.csv')
     data.fillna(0,inplace=True)
     data
 
-if Tools==False and home==False or Tools==True and home==False:
+if home==False and Tools==False or home==False and Tools==True:
     st.title('Tools')
     st.write("""
-    Harap Isi Data Sesuai Kolom
+    Harap Isi Data Sesuai Kolom, Data Tidak Boleh Kosong
     """)
     nama = st.text_input("Nama", placeholder= 'Nama')
     Mean = st.number_input("Mean")
@@ -50,28 +50,59 @@ if Tools==False and home==False or Tools==True and home==False:
     Dissimilarity = st.number_input("Dissimilarity")
     Correlation = st.number_input("Correlation")
     Coarseness = st.number_input("Coarseness")
+
+    st.write("""Metode Klasfikasi""")
+    model_1 = st.checkbox('K-Nearest Neighbors', value=True)
+    model_2 = st.checkbox('Naive Bayes ')
+    model_3 = st.checkbox('Decision Tree')
+
     columns = st.columns((2, 0.6, 2))
     sumbit = columns[1].button("Submit")
     if sumbit:
         # normalisasi data
         data = aksi.normalisasi([Mean,Variance,StandardDeviation,Entropy,Skewness,Kurtosis,Contrast,Energy,ASM,Homogeneity,Dissimilarity,Correlation,Coarseness])
         # prediksi data
-        prediksi = aksi.knn(data)    
-        # cek prediksi
-        with st.spinner("Tunggu Sebentar Masih Proses..."):
-            if prediksi[-1]== 0:
-                time.sleep(2)
-                st.success("Hasil : "+nama+" Bukan Tumor")
-            else :  
-                time.sleep(2)
-                st.warning("Hasil : "+nama+" Kemungkinan adalah tumor")
-                
-                
+        if model_1 or model_2 or model_3:
+            if model_1:
+                prediksi = aksi.knn(data)
+                # cek prediksi
+                with st.spinner("Tunggu Sebentar Masih Proses..."):
+                    if prediksi[-1] == 0:
+                        time.sleep(1)
+                        st.success("Hasil Prediksi Metode KNN: "+nama+" Tidak Memiliki Tumor")
+                    else:
+                        time.sleep(1)
+                        st.warning("Hasil Prediksi Metode KNN: "+nama+" Memiliki Tumor")
+
+            if model_2:
+                prediksi = aksi.nb(data)
+                # cek prediksi
+                with st.spinner("Tunggu Sebentar Masih Proses..."):
+                    if prediksi[-1] == 0:
+                        time.sleep(1)
+                        st.success("Hasil Prediksi Metode Naive Bayes: "+nama+" Tidak Memiliki Tumor")
+                    else:
+                        time.sleep(1)
+                        st.warning("Hasil Prediksi Metode Naive Bayes: "+nama+" Memiliki Tumor")
+
+            if model_3:
+                prediksi = aksi.nb(data)
+                # cek prediksi
+                with st.spinner("Tunggu Sebentar Masih Proses..."):
+                    if prediksi[-1] == 0:
+                        time.sleep(1)
+                        st.success("Hasil Prediksi Metode Decision Tree: "+nama+" Tidak Memiliki Tumor")
+                    else:
+                        time.sleep(1)
+                        st.warning("Hasil Prediksi Metode Decision Tree: "+nama+" Memiliki Tumor")
+        else:
+            st.error("Pilih Salah Satu Metode")
+
+
 with st.sidebar:
     st.write('Link:')
     link = '[GitHub](https://github.com/Revichi/appdataset)'
     st.markdown(link, unsafe_allow_html=True)
     link = '[Jupyter Book](https://revichi.github.io/datamining/App.html?highlight=penambangan)'
     st.markdown(link, unsafe_allow_html=True)
-    link = '[Kaggle Dataset](https://www.kaggle.com/datasets/jakeshbohaju/brain-tumor?select=Brain+Tumor.csv)'
-    st.markdown(link, unsafe_allow_html=True)
+        
