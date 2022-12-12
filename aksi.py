@@ -19,7 +19,7 @@ def normalisasi(x):
 
 def knn(x):
     
-    return joblib.load('DataMin/KNNmodel5.pkl').predict(x)
+    return joblib.load('DataMin/KNNmodel4.pkl').predict(x)
 
 def nb(x):
     
