@@ -2,8 +2,6 @@ import joblib
 import pandas as pd
 
 def normalisasi(x):
-    # import data test
-    # cols = ["Age","Sex","ALT","AST"]
     cols = ["Mean","Variance","Standard Deviation","Entropy","Skewness","Kurtosis","Contrast","Energy","ASM","Homogeneity","Dissimilarity","Correlation","Coarseness"]
     df = pd.DataFrame([x],columns=cols)
     data_test = pd.read_csv('DataMin/fix.csv')
