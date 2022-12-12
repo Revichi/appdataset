@@ -16,6 +16,15 @@ def normalisasi(x):
     # return data_test yang sudah dinormalisasi
     return joblib.load('DataMin/model.sav').fit_transform(data_test)
 
+
 def knn(x):
     
     return joblib.load('DataMin/KNNmodel5.pkl').predict(x)
+
+def nb(x):
+    
+    return joblib.load('DataMin/modelNB.pkl').predict(x)
+
+def dt(x):
+    
+    return joblib.load('DataMin/DTmodel.pkl').predict(x)
