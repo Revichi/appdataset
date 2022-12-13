@@ -13,10 +13,10 @@ with st.sidebar:
 if Tools==False and home==True:
     st.title('Brain Tumor')
     st.write("""
-    Dataset Brain Tumor otak yang mencakup lima fitur ukuran pertama dan delapan fitur tekstur dengan level target.
+    Dataset Brain Tumor otak yang mencakup 13 fitur yaitu Lima fitur ukuran dan delapan fitur tekstur dengan level target.
     """)
 
-    st.header (" Fitur Peratama :") 
+    st.header (" Fitur Ukuran:") 
     st.subheader("Mean ")
     st.write("Nilai rata-rata yang merupakan hasil dari pembagian antara jumlah seluruh nilai data dengan jumlah data yang ada.")
     st.subheader("Variance")
@@ -28,7 +28,7 @@ if Tools==False and home==True:
     st.subheader("Kurtosis")
     st.write("Keruncingan distribusi data  atau ukuran tinggi rendahnya puncak suatu distribusi data terhadap distribusi normalnya data.")
     
-    st.header("Fitur Kedua :")
+    st.header("Fitur Tekstur:")
     st.subheader("Contrast")
     st.write("Suatu ukuran intensitas aras keabuan antara piksel dengan piksel lainnya")
     st.subheader("Energy")
