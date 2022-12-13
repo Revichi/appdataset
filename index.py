@@ -46,7 +46,7 @@ if Tools==False and home==True:
     st.subheader("Coarseness")
     st.write("Merupakan fitur tekstur yang paling fundamental pada pengelolaan citra. Semakin besar jarak dari elemen sebuah citra maka citra tersebut semakin kasar. Coarseness juga disebut Kekasaran(Kekasaran Pada Citra)")
     st.header("Dataset :")
-    data = pd.read_csv('C:/Py/DataMin/BrainTumor.csv')
+    data = pd.read_csv('DataMin/BrainTumor.csv')
     data.fillna(0,inplace=True)
     data
 
