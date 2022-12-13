@@ -15,26 +15,45 @@ if Tools==False and home==True:
     st.write("""
     Dataset Brain Tumor otak yang mencakup lima fitur ukuran pertama dan delapan fitur tekstur dengan level target.
     """)
-    st.write("""
-        Fitur Peratama: Mean, Variance,Standard Deviation,Skewness,Kurtosis
-    """)
-    st.write("""Fitur Kedua :
-        ,Contrast
-        ,Energy
-        ,ASM (Angular second moment)
-        ,Entropy
-        ,Homogeneity
-        ,Dissimilarity
-        ,Correlation
-        ,Coarseness""")
-    data = pd.read_csv('DataMin/BrainTumor.csv')
+
+    st.header (" Fitur Peratama :") 
+    st.subheader("Mean ")
+    st.write("Nilai rata-rata yang merupakan hasil dari pembagian antara jumlah seluruh nilai data dengan jumlah data yang ada.")
+    st.subheader("Variance")
+    st.write("Suatu ukuran penyebaran data, yang diukur dalam pangkat dua dari selisih data terhadap rata-ratanya.")
+    st.subheader("Standard Deviation")
+    st.write("Merupakan suatu nilai yang digunakan dalam menentukan persebaran data pada suatu sampel dan melihat seberapa dekat data-data tersebut dengan nilai mean. Standar deviasi atau simpangan baku merupakan ukuran penyebaran yang paling baik, karena menggambarkan besarnya penyebaran tiap-tiap unit observasi")
+    st.subheader("Skewness")
+    st.write("Merupakan Kemiringan (ketidaksimetrian) suatu data statistik atau dapat pula didefinisikan sebagai penyimpangan dari kesimetrian suatu distribusi")
+    st.subheader("Kurtosis")
+    st.write("Keruncingan distribusi data  atau ukuran tinggi rendahnya puncak suatu distribusi data terhadap distribusi normalnya data.")
+    
+    st.header("Fitur Kedua :")
+    st.subheader("Contrast")
+    st.write("Suatu ukuran intensitas aras keabuan antara piksel dengan piksel lainnya")
+    st.subheader("Energy")
+    st.write("Ukuran yang menyatakan distribusi intensitas piksel terhadap jangkauan aras keabuan.")
+    st.subheader("ASM (Angular second moment)")
+    st.write("Ukuran homogenitas citra atau keseragaman pada citra.")
+    st.subheader("Entropy")
+    st.write("Ukuran ketidakaturan aras keabuan dalam suatu citra")
+    st.subheader("Homogeneity")
+    st.write("Merupakan ukuran yang digunakan untuk mengukur kehomogenan variasi intensitas dalam citra ")
+    st.subheader("Dissimilarity")
+    st.write("Merupakan ketidakmiripan pada suatu tekstur/Mengukur ketidakmiripan suatu tekstur, yang akan bernilai besar bila acak dan sebaliknya akan bernilai kecil bila seragam.")
+    st.subheader("Correlation")
+    st.write("Korelasi menunjukkan ketergantungan linier derajat keabuan dari pikselpiksel yang saling bertetangga dalam suatu citra abu-abu.")
+    st.subheader("Coarseness")
+    st.write("Merupakan fitur tekstur yang paling fundamental pada pengelolaan citra. Semakin besar jarak dari elemen sebuah citra maka citra tersebut semakin kasar. Coarseness juga disebut Kekasaran(Kekasaran Pada Citra)")
+    st.header("Dataset :")
+    data = pd.read_csv('C:/Py/DataMin/BrainTumor.csv')
     data.fillna(0,inplace=True)
     data
 
 if home==False and Tools==False or home==False and Tools==True:
     st.title('Tools')
     st.write("""
-    Harap Isi Data Sesuai Kolom
+    Harap Isi Data Sesuai Kolom, Data Tidak Boleh Kosong
     """)
     nama = st.text_input("Nama", placeholder= 'Nama')
     Mean = st.number_input("Mean")
@@ -105,4 +124,3 @@ with st.sidebar:
     st.markdown(link, unsafe_allow_html=True)
     link = '[Jupyter Book](https://revichi.github.io/datamining/App.html?highlight=penambangan)'
     st.markdown(link, unsafe_allow_html=True)
-        
